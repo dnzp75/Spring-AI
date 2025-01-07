@@ -1,0 +1,37 @@
+/* 주제 컨테이너 스타일 */
+.topic-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* 삼각형 버튼 공통 스타일 */
+.triangle-btn {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  background: none;
+  cursor: pointer;
+}
+
+/* 왼쪽 삼각형 버튼 */
+.triangle-btn.left {
+  border-width: 10px 15px 10px 0;
+  border-color: transparent black transparent transparent;
+  margin-right: 10px;
+}
+
+/* 오른쪽 삼각형 버튼 */
+.triangle-btn.right {
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent black;
+  margin-left: 10px;
+}
+
+/* 텍스트 스타일 */
+#currentTopic {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
