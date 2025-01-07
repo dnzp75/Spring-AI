@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class ChatController {
         this.openAiChatModel = openAiChatModel;
     }
 
-    @GetMapping("/chat")
+    @PostMapping("/chat")
     public Map<String, String> chat(@RequestBody String message) {
         Map<String, String> responses = new HashMap<>();
 

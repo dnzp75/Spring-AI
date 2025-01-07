@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시뮬레이션을 통한 AI 피드백</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>시뮬레이션을 통한 AI 피드백</h1>
+  <textarea id="userMessage" placeholder="생각나는 답변을 작성해주세요"></textarea>
+  <button onclick="sendMessage()">확인하기</button>
+  <div id="responseContainer" class="response"></div>
+</div>
+
+<script>
+  async function sendMessage() {
+    const message = document.getElementById('userMessage').value;
+    const responseContainer = document.getElementById('responseContainer');
+
+    // Clear previous response
+    responseContainer.innerHTML = "Loading...";
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message })
+      });
+
+      if (!response.ok) {
+        throw new Error('Error with API request');
+      }
+
+      const data = await response.json();
+      responseContainer.innerHTML = `<strong>Response:</strong><br>${data['openai(chatGPT) 응답']}`;
+    } catch (error) {
+      responseContainer.innerHTML = `<strong>Error:</strong> ${error.message}`;
+    }
+  }
+</script>
+</body>
+</html>
