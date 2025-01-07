@@ -1,0 +1,3 @@
+[submodule "Spring-AI-submodule"]
+	path = Spring-AI-submodule
+	url = https://github.com/dnzp75/Spring-AI-submodule.git
